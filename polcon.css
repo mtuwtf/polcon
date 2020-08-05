@@ -1,0 +1,510 @@
+/*
+   ===================================
+    CSS STYLES FOR WWW.EXAMPLE.COM
+    v1.2, 2020-08-05
+   ===================================
+*/ 
+
+* {
+	box-sizing: border-box;
+}
+
+.menu {
+	float:left;
+	width:20%;
+	text-align:center;
+}
+
+.menu a {
+	/* background-color:#e5e5e5; */
+	padding:8px;
+	margin-top:7px;
+	display:block;
+	width:100%;
+	color:black;
+}
+
+.main {
+	float:left;
+	width:60%;
+	padding:0 20px;
+}
+
+.right {
+	/* background-color:#e5e5e5; */
+	float:left;
+	width:20%;
+	padding:15px;
+	margin-top:7px;
+	text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+	/* For mobile phones: */
+	.menu, .main, .right {
+		width:100%;
+	}
+}
+
+BODY
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif;
+    FONT-SIZE: .8em;
+    FONT-WEIGHT: normal;
+    LETTER-SPACING: normal;
+    TEXT-TRANSFORM: none;
+    WORD-SPACING: normal
+}
+
+H1, H2, H3, H4, H5, TH, THEAD, TFOOT
+{
+    COLOR: #003366;
+}
+H1	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	2em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+H2	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.75em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+H3	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.58em;
+	font-weight:	500;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+H4	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.33em;
+	font-weight:	500;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+H5, DT	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+H6	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	.8em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}
+
+TFOOT, THEAD	{
+	font-size:	1em;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+TH	{
+	vertical-align:	baseline;
+	font-size:	1em;
+	font-weight:	bold;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+/* */
+.HomeHead
+{
+    color: #999966;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    HEIGHT: 35px
+}
+
+/* */
+.ContentHead
+{
+    background-color: #dddca3;
+    color: dimgray;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    height: 35px
+}
+
+/* */
+.SubContentHead
+{
+    background-color: #dddca3;
+    color: dimgray;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 20px
+}
+
+/* */
+.ErrorText
+{
+    color: red;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 20pt
+}
+
+.MostPopularHead
+{
+    background-color: darkred;
+    color: white;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: bold
+}
+
+.ColorRed
+{
+    color: red;
+    font-family: Arial;
+    text-decoration: none;
+    font-size:  14px;
+    font-weight: bold;
+    line-height: 25px;
+    padding-left: 0px
+}
+
+
+.ColorGreen
+{
+    color: green;
+    font-family: Arial;
+    text-decoration: none;
+    font-size:  14px;
+    font-weight: bold;
+    line-height: 25px;
+    padding-left: 0px
+}
+
+A.MostPopularItemText, A.MostPopularItemText:link, A.MostPopularItemText:visited
+{
+    color: black;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 11px;
+    text-decoration: none
+}
+
+/* text style for the links */
+A.SiteLink, A.SiteLink:link, A.SiteLink:visited
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #dddddd;
+    font-size: 11px;
+}   
+
+A.SiteLink:hover
+{
+    text-decoration: underline;
+    color: white;
+}
+
+A.SiteLinkBold, A.SiteLinkBold:link, A.SiteLinkBold:visited
+{
+    color: #dddddd;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size:  11px;
+    font-weight: bold
+}
+
+A.SiteLinkBold:hover
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* */
+A.MenuUnselected, A.MenuUnselected:link, A.MenuUnselected:visited
+{
+    color: goldenrod;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size:  12px;
+    font-weight: bold;
+    line-height: 16px;
+    padding-left: 10px
+}
+
+A.MenuUnselected:hover
+{
+    color: white;
+    text-decoration: underline;
+    padding-left: 10px
+}
+
+A.MenuSelected
+{
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size:  12px;
+    font-weight: bold;
+    line-height: 16px;
+    padding-left: 10px
+}
+
+A.MenuSelected:hover
+{
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    padding-left: 10px
+}
+
+/* GENERAL */
+
+/* text style used for most text rendered by modules */
+.Normal
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 12px
+}
+
+.NormalDouble
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 20px
+}
+
+.NormalTextBox
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.NormalSelect
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.EditTextBox
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999966;
+    width: 100%;
+}
+
+.NormalControl
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.NormalCheckBox
+{
+    margin-left: -4px;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.NormalRadio
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-indent: -5px;
+}
+
+.NormalButton
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-indent: -5px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: #cccc99; */
+    background-color:#ccccaa;
+}
+
+.NormalRed
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: red
+}
+
+A.ItemUnselected
+{
+    color: #000080;
+    font-family: Arial;
+    text-decoration: none;
+    font-size:  14px;
+    font-weight: bold;
+    line-height: 25px;
+    padding-left: 0px
+}
+
+A.ItemUnselected:hover
+{
+    color: red;
+    padding-left: 0px
+}
+
+A.ItemSelected
+{
+    color: green;
+    font-family: Arial;
+    text-decoration: none;
+    font-size:  14px;
+    font-weight: bold;
+    line-height: 25px;
+    padding-left: 0px
+}
+
+A.DateLink
+{
+    color: #000080;
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size:  11px;
+    font-weight: normal;
+    line-height: 12px;
+    padding-left: 0px
+}
+
+A.DateLink:hover
+{
+    color: red;
+    padding-left: 0px
+}
+
+.NormalBold
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 12px
+}
+
+.NormalItalic
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 16px
+}
+
+A:link  {
+    text-decoration: none;
+    color:  black;
+}
+
+A, A:hover {
+    text-decoration: underline;
+    color:  black;
+}
+
+A.NormalLink
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+A.NormalLink:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+x-small	{
+    font-size:  6px;
+}
+
+SMALL   {
+    font-size:  8px;
+}
+
+BIG {
+    font-size:  14px;
+}
+
+BLOCKQUOTE, PRE {
+    font-family:    Lucida Console, monospace;
+}
+
+
+UL LI   {
+    list-style-type:    square ;
+}
+
+UL LI LI    {
+    list-style-type:    disc;
+}
+
+UL LI LI LI {
+    list-style-type:    circle;
+}
+
+OL LI   {
+    list-style-type:    decimal;
+}
+
+OL OL LI    {
+    list-style-type:    lower-alpha;
+}
+
+OL OL OL LI {
+    list-style-type:    lower-roman;
+}
+
+HR {
+    height:1pt;
+    text-align:left
+}
