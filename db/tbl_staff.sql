@@ -1,0 +1,25 @@
+CREATE TABLE tbl_staff (
+    int_staff_id  serial PRIMARY KEY,
+    txt_staff_guid character varying(64),
+    txt_staff_guid_sha1 character varying(64),
+    txt_staff_email character varying(128),
+    txt_staff_email_sha1 character varying(64),
+    txt_created timestamp without time zone NOT NULL,
+    txt_isp_confirmed timestamp without time zone,
+    txt_coc_confirmed timestamp without time zone,
+    txt_dsp_confirmed timestamp without time zone,
+    txt_gdpr_confirmed timestamp without time zone,
+    txt_tmp1_confirmed timestamp without time zone,
+    txt_tmp2_confirmed timestamp without time zone,
+    txt_tmp3_confirmed timestamp without time zone,
+    txt_tmp4_confirmed timestamp without time zone,
+    txt_isp character varying(64),
+    txt_coc character varying(64),
+    txt_dsp character varying(64),
+    txt_gdpr character varying(64),
+    txt_tmp1 character varying(64),
+    txt_tmp2 character varying(64),
+    txt_tmp3 character varying(64),
+    txt_tmp4 character varying(64)
+);
+ALTER TABLE tbl_staff OWNER TO postgres;
