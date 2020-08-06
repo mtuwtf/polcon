@@ -7,6 +7,6 @@ There are a lot of parts and dependencies to set up. I'll try to be as complete 
 
 This work would not have been possible without the amazing work by Kristaps Dzonsons, the author of kcgi - https://kristaps.bsd.lv/kcgi/. Kristaps is brilliant! I admire and appreciate all of his work. Anyone using my project's code would be best served by reading about the BCHS STACK - https://learnbchs.org/.
 
-This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommended doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. 
+This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommend doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. 
 
 This doc is still a WIP.
