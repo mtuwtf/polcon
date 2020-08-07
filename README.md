@@ -1,4 +1,4 @@
-# polcon
+'# polcon
 Policy Confirmation - do it yourself compliance apps using BCHS and KCGI
 
 I created this project to make policy confirmation for staff easier. They would get an email with a link to click and confirm that they have "read, accept and acknowledge" whatever policy we want them to know and follow for compliance and audit purpose. I use YAMM - "Yet Another Mail Merge" to create the emails.
@@ -18,7 +18,7 @@ postgresql-server-12.2 <-- PostgreSQL RDBMS (server)
 
 --- PostgreSQL configuration ---
 
-# su - _postgresql
+'# su - _postgresql
 $ id
 uid=503(_postgresql) gid=503(_postgresql) groups=503(_postgresql)
 $ ls
@@ -93,20 +93,20 @@ GRANT
 
 ...now as a superuser
 
-# cd /var/postgresql/data
+'# cd /var/postgresql/data
 edit pg_hba.conf
 ...
-# IPv4 local connections:
+'# IPv4 local connections:
 host     staffdb          postgres        127.0.0.1/32        md5
 host     staffdb          web.            127.0.0.1/32        md5
 
 and also edit postgresql.conf
-# - Connection Settings -
+'# - Connection Settings -
 listen_addresses = '127.0.0.1'
 
 then reload postgresql
 
-# rcctl reload postgresql
+'# rcctl reload postgresql
 
 --- changes specific to your environment ---
 
