@@ -118,8 +118,7 @@ and also edit postgresql.conf
 listen_addresses = '127.0.0.1'
 ```
 
-then reload postgresql to reflect these changes
-\# **rcctl reload postgresql**
+then reload postgresql to reflect these changes, run `rcctl reload postgresql`
 
 ## changes specific to your environment
 ```
@@ -165,7 +164,7 @@ Checkout this repository: git@github.com:mtuwtf/polcon.git
 
 **doas touch /var/www/cgi-bin/staff.txt && doas chmod 644 /var/www/cgi-bin/staff.txt && doas chown root:www /var/www/cgi-bin/staff.txt**
 
-Here is some dummy data or populate **/var/www/cgi-bin/staff.txt** with your own list of email addresses, one email per line.
+Here is some dummy data or populate `/var/www/cgi-bin/staff.txt` with your own list of email addresses, one email per line.
 ```
 yFsA5MNpfbnrj@mtu.wtf
 MhubWRuWtJs3W@mtu.wtf
@@ -177,7 +176,7 @@ You should immediatly remove this file from the web server once you have success
 
 **doas rm -P /var/www/cgi-bin/staff.txt**
 
-Note for the above email list, if you have email addresses longer than 49 characters, there is a section in **import/src/import.c** that will need to be changed:
+Note for the above email list, if you have email addresses longer than 49 characters, there is a section in `import/src/import.c` that will need to be changed:
 ```
         /*
          * This may need to be increased depending
