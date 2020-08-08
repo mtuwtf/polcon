@@ -10,7 +10,7 @@ This work would not have been possible without the amazing work by Kristaps Dzon
 
 This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommend doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. We will install PostgreSQL server on the same server that will be running the web server, httpd. I would recommend separating the database server from the web server(s). However, for simpliciy, the configuration below will assume you are running everything on one server.
 
-Install the latest release of OpenBSD. As of this writing that would be OpenBSD 6.7. I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
+Install the latest release of [OpenBSD](https://www.openbsd.org). As of this writing that would be [OpenBSD 6.7](https://www.openbsd.org/67.html). I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
 ```
 libpqxx-4.0.1p2        <-- C++ client API for PostgreSQL
 kcgi-0.12.0p0          <-- minimal CGI library for web applications
@@ -215,8 +215,8 @@ Find and update the following sections in **import/src/import.c**.
 
 ###policy
 
-There are some changes that you will need to make in **import/src/policy.c**.
-Find and update the following sections in **import/src/policy.c**.
+There are some changes that you will need to make in `import/src/policy.c`.
+Find and update the following sections in `import/src/policy.c`.
 ```
         /*
          * CHANGE THIS HERE
@@ -249,9 +249,9 @@ https://ip.mtu.wtf/cgi-bin/jip
 
 the latter responds in JSON format.
 
-For a little more protection, you can configure basic authentication in your /etc/httpd.conf config. This is where you definitely want to enforce all connections over a secure TLS connection.
+For a little more protection, you can configure basic authentication in your `/etc/httpd.conf` config file. This is when you definitely want to enforce all connections over a secure TLS connection.
 
-Here is an example of my /etc/httpd.conf config on my dev machine:
+Here is an example of my `/etc/httpd.conf` config on my dev machine:
 
 ```
 # $Id: httpd.conf 1615 2020-02-09 17:03:58Z mtu $
@@ -299,7 +299,7 @@ server "dev.toraki.net" {
 }
 ```
 
-Your /etc/rc.conf.local file should have these two entries:
+Your `/etc/rc.conf.local` file should have these two entries:
 
 httpd_flags=""
 
@@ -334,13 +334,9 @@ Now go into each of the following directories:
         ├── policy.c
         └── policy.html
 ```
-**cd import/src**
+**cd import/src && ./build.sh import**
 
-**./build.sh import**
-
-**cd ../../policy/src**
-
-**./build.sh policy**
+**cd ../../policy/src && ./build.sh policy**
 
 If there were no errors during compilation, then those two files would be sitting in this directory with the following permisions:
 
