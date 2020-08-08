@@ -19,12 +19,19 @@ postgresql-server-12.2 <-- PostgreSQL RDBMS (server)
 ## PostgreSQL configuration
 
 \# **su - _postgresql**
+
 $ **id**
+
 uid=503(_postgresql) gid=503(_postgresql) groups=503(_postgresql)
+
 $ **ls**
+
 $ **pwd**
+
 /var/postgresql
+
 $ **mkdir data**
+
 $ **initdb -D /var/postgresql/data -U postgres -A md5 -W**
 
 ```
