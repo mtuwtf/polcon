@@ -34,6 +34,7 @@ Success. You can now start the database server using:
 
     pg_ctl -D /var/postgresql/data -l logfile start
 
+```
 $ pg_ctl -D /var/postgresql/data -l logfile start
 waiting for server to start.... done
 server started
@@ -88,7 +89,7 @@ staffdb=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO web;
 GRANT
 staffdb=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO web;
 GRANT
-
+```
 ==
 
 ...now as a superuser
@@ -112,6 +113,7 @@ then reload postgresql
 
 Checkout this repository: git@github.com:mtuwtf/polcon.git
 [m] polcon $ tree
+```
 .
 ├── LICENSE
 ├── README.md
@@ -137,7 +139,7 @@ Checkout this repository: git@github.com:mtuwtf/polcon.git
         └── policy.html
 
 5 directories, 17 files
-
+```
 doas cp polcon.h /usr/include/
 doas chown root:bin /usr/include/polcon.h
 doas chmod 444 /usr/include/polcon.h
@@ -157,17 +159,19 @@ KvZgR4z5nK9UM@mtu.wtf
 v56RAWSB5NGRF@mtu.wtf
 
 Note for the above, if you have email addresses longer than 49 characters, there is a section in import/src/import.c that will need to be changed:
+```
         /*
          * This may need to be increased depending
          * on the longest email in your list.
          */
         while (fscanf(sfp, "%50s", emails[n]) == 1) {
-
+```
 cd import/src && chmod 700 *.sh && cd -
 cd policy/src && chmod 700 *.sh && cd -
 
 There are some changes that you will need to make in import/src/import.c
 Find and update the following sections in import/src/import.c
+```
         /*
          * CHANGE THIS HERE
          */
@@ -185,7 +189,7 @@ Find and update the following sections in import/src/import.c
           */
          conninfo = "host=192.168.8.88 dbname=staffdb user=web password=CHANGEME";
                           ^^^^^^^^^^^^ should be changed to 127.0.0.1
- 
+``` 
 ===
 
 This doc is still a WIP.
