@@ -107,10 +107,9 @@ GRANT
 
 edit pg_hba.conf
 ```
-...
 # IPv4 local connections:
 host     staffdb          postgres        127.0.0.1/32        md5
-host     staffdb          web.            127.0.0.1/32        md5
+host     staffdb          web             127.0.0.1/32        md5
 ```
 
 and also edit postgresql.conf
