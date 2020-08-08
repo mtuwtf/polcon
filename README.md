@@ -204,6 +204,88 @@ Find and update the following sections in **import/src/import.c**.
          conninfo = "host=192.168.8.88 dbname=staffdb user=web password=CHANGEME";
                           ^^^^^^^^^^^^ should be changed to 127.0.0.1
 ``` 
-===
+
+## Web Server set up
+
+First, you should really test these apps on a dev machine somewhat protected from the Internet.
+
+Assuming your dev machine has a public IP address and is accessible on the Internet, I would configure pf to block all connections access and only allow TCP/443 access from the IP that you want to test from. There is nothing sensitive but Let's Encrypt makes doing everything over a TLS connection very easy, so why not?
+
+I wrote another simple app using KCGI to let me know what IP I have. I really hate ads.
+
+https://ip.mtu.wtf/cgi-bin/ip
+
+or
+
+https://ip.mtu.wtf/cgi-bin/jip
+
+the latter responds in JSON format.
+
+For a little more protection, you can configure basic authentication in your /etc/httpd.conf config. This is where you definitely want to enforce all connections over a secure TLS connection.
+
+Here is an example of my /etc/httpd.conf config on my dev machine:
+
+```
+# $Id: httpd.conf 1615 2020-02-09 17:03:58Z mtu $
+
+prefork 4
+
+ext_addr="aaa.bbb.ccc.ddd"
+
+# when renewing le cert, comment this section out
+server "www" {
+  listen on egress port 80
+  block return 301 "https://dev.toraki.net/"
+}
+
+server "dev.toraki.net" {
+# when renewing le cert, uncomment this next line
+##listen on egress port 80
+  listen on egress tls port 443
+  tls certificate "/etc/ssl/acme/toraki/dev.toraki.net.fullchain.pem"
+  tls key "/etc/ssl/acme/toraki/dev.toraki.net.key"
+  hsts
+
+  root "/htdocs"
+
+  directory {
+    auto index
+    index "index.html"
+  }
+
+  location "/cgi-bin/*" {
+    fastcgi
+    root "/"
+  }
+
+  # when renewing le cert, comment this section out
+  location "/*" {
+    authenticate with "/htpasswords"
+  }
+
+  location "/.well-known/acme-challenge/*" {
+    root "/acme"
+    request strip 2
+    directory no auto index
+  }
+}
+```
+
+Your /etc/rc.conf.local file should have these two entries:
+
+httpd_flags=""
+
+slowcgi_flags=
+
+The first starts the web server (httpd) and the second starts the fastcgi daemon, both on boot. To start them without booting:
+
+**doas rcctl -f start httpd**
+
+**doas rcctl -f start slowcgi**
+
+## Compiling the C binaries
+
+
+
 
 This doc is still a WIP.
