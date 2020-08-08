@@ -1,31 +1,33 @@
-\# polcon
-Policy Confirmation - do it yourself compliance apps using BCHS and KCGI
+# Policy Confirmation - do it yourself compliance apps using BCHS and KCGI
 
-I created this project to make policy confirmation for staff easier. They would get an email with a link to click and confirm that they have "read, accept and acknowledge" whatever policy we want them to know and follow for compliance and audit purpose. I use YAMM - "Yet Another Mail Merge" to create the emails.
+I created this GDPR compliant project to make policy confirmation for staff easier. They would get an email with a link to click and confirm that they have "read, accept and acknowledge" whatever policy we want them to know and follow for compliance and audit purpose. I use YAMM - "Yet Another Mail Merge" to create the emails.
 
 There are a lot of parts and dependencies to set up. I'll try to be as complete as possible at the expense of being too verbose.
 
 This work would not have been possible without the amazing work by Kristaps Dzonsons, the author of kcgi - https://kristaps.bsd.lv/kcgi/. Kristaps is brilliant! I admire and appreciate all of his work. Anyone using my project's code would be best served by reading about the BCHS STACK - https://learnbchs.org/.
 
-This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommend doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. We will install PostgreSQL server on the same server that will be running httpd. I would recommend separating the database server from the web servers. However, for simpliciy, the configuration below will assume you are running everything on one server.
+This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommend doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. We will install PostgreSQL server on the same server that will be running the web server, httpd. I would recommend separating the database server from the web server(s). However, for simpliciy, the configuration below will assume you are running everything on one server.
 
 Install the latest release of OpenBSD. As of this writing that would be OpenBSD 6.7. I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
-
+```
 libpqxx-4.0.1p2        <-- C++ client API for PostgreSQL
 kcgi-0.12.0p0          <-- minimal CGI library for web applications
 postgresql-client-12.2 <-- PostgreSQL RDBMS (client)
 postgresql-server-12.2 <-- PostgreSQL RDBMS (server)
+```
 
---- PostgreSQL configuration ---
+## PostgreSQL configuration
 
-\# su - _postgresql
-$ id
+\# **su - _postgresql**
+$ **id**
 uid=503(_postgresql) gid=503(_postgresql) groups=503(_postgresql)
-$ ls
-$ pwd
+$ **ls**
+$ **pwd**
 /var/postgresql
-$ mkdir data
-$ initdb -D /var/postgresql/data -U postgres -A md5 -W
+$ **mkdir data**
+$ **initdb -D /var/postgresql/data -U postgres -A md5 -W**
+
+```
 ...
 Enter new superuser password:
 Enter it again:
@@ -34,7 +36,6 @@ Success. You can now start the database server using:
 
     pg_ctl -D /var/postgresql/data -l logfile start
 
-```
 $ pg_ctl -D /var/postgresql/data -l logfile start
 waiting for server to start.... done
 server started
@@ -90,30 +91,31 @@ GRANT
 staffdb=# GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO web;
 GRANT
 ```
-==
 
-...now as a superuser
+...now as a superuser or as _postgresql
 
-\# cd /var/postgresql/data
+\# **cd /var/postgresql/data**
 edit pg_hba.conf
+```
 ...
-\# IPv4 local connections:
+# IPv4 local connections:
 host     staffdb          postgres        127.0.0.1/32        md5
 host     staffdb          web.            127.0.0.1/32        md5
+```
 
 and also edit postgresql.conf
-\# - Connection Settings -
+```
+# - Connection Settings -
 listen_addresses = '127.0.0.1'
+```
 
-then reload postgresql
+then reload postgresql to reflect these changes
+\# **rcctl reload postgresql**
 
-\# rcctl reload postgresql
-
---- changes specific to your environment ---
-
+## changes specific to your environment
+```
 Checkout this repository: git@github.com:mtuwtf/polcon.git
 [m] polcon $ tree
-```
 .
 ├── LICENSE
 ├── README.md
@@ -140,25 +142,29 @@ Checkout this repository: git@github.com:mtuwtf/polcon.git
 
 5 directories, 17 files
 ```
-doas cp polcon.h /usr/include/
-doas chown root:bin /usr/include/polcon.h
-doas chmod 444 /usr/include/polcon.h
+**doas cp polcon.h /usr/include/**
 
-doas cp polcon.css /var/www/htdocs/
-doas chmod 444 /var/www/htdocs/polcon.css
-doas chown www:www /var/www/htdocs/polcon.css
+**doas chown root:bin /usr/include/polcon.h**
 
-doas touch /var/www/cgi-bin/staff.txt && doas chmod 644 /var/www/cgi-bin/staff.txt && doas chown root:www /var/www/cgi-bin/staff.txt
+**doas chmod 444 /usr/include/polcon.h**
 
-Here is some dummy data or populate staff.txt with your own list of email addresses, one email per line.
-cat staff.txt
+**doas cp polcon.css /var/www/htdocs/**
+
+**doas chmod 444 /var/www/htdocs/polcon.css**
+
+**doas chown www:www /var/www/htdocs/polcon.css**
+
+**doas touch /var/www/cgi-bin/staff.txt && doas chmod 644 /var/www/cgi-bin/staff.txt && doas chown root:www /var/www/cgi-bin/staff.txt**
+
+Here is some dummy data or populate **/var/www/cgi-bin/staff.txt** with your own list of email addresses, one email per line.
+```
 yFsA5MNpfbnrj@mtu.wtf
 MhubWRuWtJs3W@mtu.wtf
 Ag4hsNCP9mPSJ@mtu.wtf
 KvZgR4z5nK9UM@mtu.wtf
 v56RAWSB5NGRF@mtu.wtf
-
-Note for the above, if you have email addresses longer than 49 characters, there is a section in import/src/import.c that will need to be changed:
+```
+Note for the above, if you have email addresses longer than 49 characters, there is a section in **import/src/import.c** that will need to be changed:
 ```
         /*
          * This may need to be increased depending
@@ -166,11 +172,12 @@ Note for the above, if you have email addresses longer than 49 characters, there
          */
         while (fscanf(sfp, "%50s", emails[n]) == 1) {
 ```
-cd import/src && chmod 700 *.sh && cd -
-cd policy/src && chmod 700 *.sh && cd -
+**cd import/src && chmod 700 *.sh && cd -**
 
-There are some changes that you will need to make in import/src/import.c
-Find and update the following sections in import/src/import.c
+**cd policy/src && chmod 700 *.sh && cd -**
+
+There are some changes that you will need to make in **import/src/import.c**.
+Find and update the following sections in **import/src/import.c**.
 ```
         /*
          * CHANGE THIS HERE
