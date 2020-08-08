@@ -104,6 +104,7 @@ GRANT
 ...now as a superuser or as _postgresql
 
 \# **cd /var/postgresql/data**
+
 edit pg_hba.conf
 ```
 ...
