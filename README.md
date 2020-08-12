@@ -188,7 +188,7 @@ Note for the above email list, if you have email addresses longer than 49 charac
 
 **cd policy/src && chmod 700 \*.sh && cd -**
 
-###import
+### import
 
 There are some changes that you will need to make in **import/src/import.c**.
 Find and update the following sections in **import/src/import.c**.
@@ -213,7 +213,7 @@ Find and update the following sections in **import/src/import.c**.
 ``` 
 
 
-###policy
+### policy
 
 There are some changes that you will need to make in `import/src/policy.c`.
 Find and update the following sections in `import/src/policy.c`.
@@ -258,8 +258,6 @@ Here is an example of my `/etc/httpd.conf` config on my dev machine:
 
 prefork 4
 
-ext_addr="aaa.bbb.ccc.ddd"
-
 # when renewing le cert, comment this section out
 server "www" {
   listen on egress port 80
@@ -298,6 +296,7 @@ server "dev.toraki.net" {
   }
 }
 ```
+**Note: The above config has an `htpasswords` file and you will need to change the `server "dev.toraki.net" {` line to suit your environment. **
 
 Your `/etc/rc.conf.local` file should have these two entries:
 
@@ -374,4 +373,4 @@ in the src directory of the import section.
 
 **rm -P /var/www/cgi-bin/staff.txt**
 
-I will confirm all of the above is correct by doing a run through so that I've not missed anything. This doc is still a WIP.
+This README is finished. I've done a run through on a totally new system following the above directions and had no issues importing emails and testing token input. Next, I will work on the Wiki to include images to round out this documentation.
