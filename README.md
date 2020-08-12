@@ -184,9 +184,9 @@ Note for the above email list, if you have email addresses longer than 49 charac
          */
         while (fscanf(sfp, "%50s", emails[n]) == 1) {
 ```
-**cd import/src && chmod 700 *.sh && cd -**
+**cd import/src && chmod 700 \*.sh && cd -**
 
-**cd policy/src && chmod 700 *.sh && cd -**
+**cd policy/src && chmod 700 \*.sh && cd -**
 
 ###import
 
