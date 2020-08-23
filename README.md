@@ -373,4 +373,4 @@ in the src directory of the import section.
 
 **rm -P /var/www/cgi-bin/staff.txt**
 
-This README is finished. I've done a run through on a totally new system following the above directions and had no issues importing emails and testing token input. Next, I will work on the [Wiki](https://github.com/mtuwtf/polcon/wiki) to include images to round out this documentation.
+I've done a run through on a totally new system following the above directions and had no issues importing emails and testing token input. Please visit the [Wiki](https://github.com/mtuwtf/polcon/wiki) for more documentation.
