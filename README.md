@@ -239,7 +239,7 @@ First, you should really test these apps on a dev machine somewhat protected fro
 
 Assuming your dev machine has a public IP address and is accessible on the Internet, I would configure pf to block all connections access and only allow TCP/443 access from the IP that you want to test from. There is nothing sensitive but Let's Encrypt makes doing everything over a TLS connection very easy, so why not?
 
-I wrote another simple app using KCGI to let me know what IP I have. I really hate ads.
+I [wrote another simple app](https://github.com/mtuwtf/ip/wiki) using KCGI to let me know what IP I have. I really hate ads.
 
 https://ip.mtu.wtf/cgi-bin/ip
 
