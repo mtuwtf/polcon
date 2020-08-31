@@ -298,17 +298,27 @@ server "dev.toraki.net" {
 ```
 **Note: The above config has an `htpasswords` file and you will need to change the `server "dev.toraki.net" {` line to suit your environment. **
 
+Now enable httpd and slowcgi with:
+
+```
+doas rcctl enable httpd
+
+doas rcctl enable slowcgi
+```
+
 Your `/etc/rc.conf.local` file should have these two entries:
 
-httpd_flags=""
+httpd_flags=
 
 slowcgi_flags=
 
-The first starts the web server (httpd) and the second starts the fastcgi daemon, both on boot. To start them without booting:
+Start httpd and slowcgi with:
 
-**doas rcctl -f start httpd**
+```
+doas rcctl start httpd
 
-**doas rcctl -f start slowcgi**
+doas rcctl start slowcgi
+```
 
 ## Compiling the C binaries
 
