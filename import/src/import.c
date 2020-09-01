@@ -96,16 +96,16 @@ main(int argc, char *argv[])
 	/*
 	 * CHANGE THIS HERE
 	 */
-	char txtDomain[512]  = "www.example.com";
+	const char txtDomain[]  = "www.example.com";
 	
-	char txtConfirmation[1024]           = "Thank you for the confirmation.";
-	char txtConfirmationExists[1024]     = "Thank you but we already received your confirmation on";
-	char txtTokenLengthBad[1024]         = "There was a problem with the token provided.";
+	const char txtConfirmation[]           = "Thank you for the confirmation.";
+	const char txtConfirmationExists[]     = "Thank you but we already received your confirmation on";
+	const char txtTokenLengthBad[]         = "There was a problem with the token provided.";
 	 
 	char str[] = { [13] = '\1' };
 	char txt_isp[14], txt_coc[14], txt_dsp[14], txt_gdpr[14], txt_tmp1[14], txt_tmp2[14], txt_tmp3[14], txt_tmp4[14]; // used for import.c and staff.c
 	 
-	char errConnectionProblem[1024]      = "There is a problem with the connection.";
+	const char errConnectionProblem[]      = "There is a problem with the connection.";
 	 
 	char            txt_session_id   [37]; // (32 alphanumeric characters and four hyphens) + NULL
 	unsigned char   txtSHA1          [65]; // txt_session_id_sha1
