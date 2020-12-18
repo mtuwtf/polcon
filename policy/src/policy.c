@@ -250,7 +250,7 @@ main(void)
 	/* khttp_head(&r, "Content-Security-Policy", "default-src https:"); */
 	 	
 	if (NULL == r.cookiemap[KEY_COOKIE]) {
-		khttp_head(&r, kresps[KRESP_SET_COOKIE], "%s=%s; Path=/; expires=%s", keys[KEY_COOKIE].name, txtGUID, kutil_epoch2str(time(NULL) + TIMEOUT, txtCookie, sizeof(txtCookie)));
+		khttp_head(&r, kresps[KRESP_SET_COOKIE], "%s=%s; Path=/; expires=%s", keys[KEY_COOKIE].name, txtGUID, khttp_epoch2str(time(NULL) + TIMEOUT, txtCookie, sizeof(txtCookie)));
 	}
 	 	
 	khttp_body(&r);
