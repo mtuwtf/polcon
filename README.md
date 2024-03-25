@@ -12,10 +12,10 @@ This project will assume that you are going to run this on OpenBSD using the def
 
 Install the latest release of [OpenBSD](https://www.openbsd.org). As of this writing that would be [OpenBSD 6.7](https://www.openbsd.org/67.html). I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
 ```
-libpqxx-4.0.1p2        <-- C++ client API for PostgreSQL
-kcgi-0.12.0p0          <-- minimal CGI library for web applications
-postgresql-client-12.2 <-- PostgreSQL RDBMS (client)
-postgresql-server-12.2 <-- PostgreSQL RDBMS (server)
+libpqxx-6.4.7          <-- C++ client API for PostgreSQL
+kcgi-0.13.0            <-- minimal CGI library for web applications
+postgresql-client-15.6 <-- PostgreSQL RDBMS (client)
+postgresql-server-15.6 <-- PostgreSQL RDBMS (server)
 ```
 
 ## PostgreSQL configuration
@@ -34,7 +34,7 @@ $ **pwd**
 
 $ **mkdir data**
 
-$ **initdb -D /var/postgresql/data -U postgres -A md5 -W**
+$ **initdb -D /var/postgresql/data -U postgres -A scram-sha-256 -W**
 
 ```
 ...
@@ -57,7 +57,7 @@ Password:
 $
 $ psql staffdb -U postgres
 Password for user postgres:
-psql (12.2)
+psql (15.6)
 Type "help" for help.
 
 staffdb=# CREATE TABLE tbl_staff (
@@ -91,9 +91,9 @@ staffdb=#
 staffdb=# CREATE USER web WITH ENCRYPTED PASSWORD '*websecretpassword*';
 CREATE ROLE
 staffdb=#
-staffdb=# grant connect on database staffdb to web;
+staffdb=# GRANT CONNECT ON DATABASE staffdb TO web;
 GRANT
-staffdb=# grant usage on schema public to web;
+staffdb=# GRANT USAGE ON SCHEMA public TO web;
 GRANT
 staffdb=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO web;
 GRANT
@@ -108,8 +108,8 @@ GRANT
 edit pg_hba.conf
 ```
 # IPv4 local connections:
-host     staffdb          postgres        127.0.0.1/32        md5
-host     staffdb          web             127.0.0.1/32        md5
+host     staffdb          postgres        127.0.0.1/32        scram-sha-256
+host     staffdb          web             127.0.0.1/32        scram-sha-256
 ```
 
 and also edit postgresql.conf
