@@ -10,7 +10,7 @@ This work would not have been possible without the amazing work by Kristaps Dzon
 
 This project will assume that you are going to run this on OpenBSD using the default web server, httpd. It is not a must but I strongly recommend doing so for reasons that I will not go into here. The database that I use is PostgreSQL and this project assumes that you will be using Postgres as well. We will install PostgreSQL server on the same server that will be running the web server, httpd. I would recommend separating the database server from the web server(s). However, for simpliciy, the configuration below will assume you are running everything on one server.
 
-Install the latest release of [OpenBSD](https://www.openbsd.org). As of this writing that would be [OpenBSD 6.7](https://www.openbsd.org/67.html). I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
+Install the latest release of [OpenBSD](https://www.openbsd.org). As of this writing that would be [OpenBSD 7.4](https://www.openbsd.org/67.html). I run all most of my systems on the AMD64 architecture. You will need to install the following stable packages:
 ```
 libpqxx-6.4.7          <-- C++ client API for PostgreSQL
 kcgi-0.13.0            <-- minimal CGI library for web applications
@@ -201,7 +201,7 @@ Find and update the following sections in **import/src/import.c**.
          /*
          * You can add some 5500 emails with emails[5500][5500]
          * but beyond this you will need to increase system limits.
-         * Tested on OpenBSD 6.7 amd64.
+         * Tested on OpenBSD 7.4 amd64.
          */
         char    emails[500][500]; // LIMIT - be careful here. over 500 records will crash.
  
